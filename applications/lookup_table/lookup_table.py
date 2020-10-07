@@ -1,5 +1,8 @@
 # Your code here
+import math
+import random
 
+cache = {}
 
 def slowfun_too_slow(x, y):
     v = math.pow(x, y)
@@ -16,6 +19,10 @@ def slowfun(x, y):
     """
     # Your code here
 
+    if f"{x}, {y}" not in cache:
+        cache[f"({x}, {y})"] = (math.factorial(
+            math.pow(x, y)) // (x + y)) % 982451653
+    return cache[f"{x}, {y}"]
 
 
 # Do not modify below this line!
