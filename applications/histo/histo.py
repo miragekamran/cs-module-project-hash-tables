@@ -6,7 +6,7 @@ def histogram(string):
     with open(string) as file:
         w = file.read()
 
-    # Create a var for words and make the output in lowercase and
+    # Create a var for words and make the output in lowercase and 
     # split the words
     words = [x.lower() for x in w.split()]
 
@@ -30,18 +30,16 @@ def histogram(string):
             word_count[new_word] += 1
         else:
             word_count[new_word] = 1
-
+    
     # Create a sorted dictionary
-    sorted_dict = {k: v for k, v in sorted(
-        word_count.items(), key=lambda item: item[1], reverse=True)}
+    sorted_dict = {k:v for k,v in sorted(word_count.items(), key=lambda item:item[1], reverse=True)}
 
     # Loop through the sorted dictionary
-    # and set each key to be equaled to #
+    # and set each key to be equaled to # 
     # and multiply by the number its occurance
     for key in sorted_dict:
         sorted_dict[key] = "#" * sorted_dict[key]
         # Print the keys and give a length of 20 for the keys plus the space
         print(key.ljust(20, " ") + sorted_dict[key])
-
-
+    
 histogram('robin.txt')
